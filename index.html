@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List Application</title>
+    <script src="./todoApp.js"></script>
+
+    <style>
+      #addTaskButton {
+        width: 100px;
+        height: 30px;
+        background-color: #4caf50;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+      #doneButton {
+        width: 50px;
+        height: 30px;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+
+      legend,
+      label {
+        font-weight: bold;
+      }
+      #todo-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+      }
+      .todo-item {
+        border: 1px solid black;
+        padding: 10px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-Do List Application</h1>
+
+    <section>
+      <fieldset>
+        <legend>Task register form</legend>
+
+        <label for="description">Description:</label>
+        <div style="margin: 5px 10px 10px 10px">
+          <textarea
+            name="description"
+            id="description"
+            style="width: 100%"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <div style="margin-bottom: 10px">
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority">
+            <option value="high" selected>High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <button id="addTaskButton" onclick="addTask()">Add Task</button>
+      </fieldset>
+    </section>
+
+    <article style="margin-top: 20px">
+      <h2>To-Do List</h2>
+      <div style="margin: 10px 0px 10px 10px">
+        <label for="priority-filter">Filter: Priority</label>
+        <select
+          name="priority-filter"
+          id="priority-filter"
+          onchange="onChangeFilter()"
+        >
+          <option value="" selected>All</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <div id="todo-items">
+        <!-- <div class="todo-item">
+          <div style="font-weight: bold">
+            Task 1<span style="margin-left: 10px; font-size: small"
+              >Priority: High</span
+            >
+          </div>
+          <p>description</p>
+          <button id="doneButton" onclick="deleteTask(this)">Done</button>
+        </div> -->
+      </div>
+    </article>
+  </body>
+</html>
